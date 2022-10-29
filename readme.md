@@ -22,4 +22,4 @@ and
 then, run 
 
     docker-compose up 
-from the project root directory.
+from the project root directory. And we are all set!
