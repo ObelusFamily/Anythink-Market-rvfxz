@@ -11,6 +11,7 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 ## First setup
 
 **[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+
 First we have to install Docker, however before we do that make sure you are correctly set the WSL 2, windows subsystem for linux, Docker needs it to work properly.
 Then on terminal run 
 
