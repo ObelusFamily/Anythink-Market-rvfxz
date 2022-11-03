@@ -29,7 +29,7 @@ async def retrieve_current_user(
             username=user.username,
             email=user.email,
             bio=user.bio,
-            image="/placeholder.png",
+            image="placeholder.png",
             token=token,
         ),
     )
@@ -67,7 +67,7 @@ async def update_current_user(
             username=user.username,
             email=user.email,
             bio=user.bio,
-            image="/placeholder.png",
+            image="placeholder.png",
             token=token,
         ),
     )

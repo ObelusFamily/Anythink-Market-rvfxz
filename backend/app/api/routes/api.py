@@ -15,4 +15,4 @@ router.include_router(
     prefix="/items/{slug}/comments",
 )
 router.include_router(tags.router, tags=["tags"], prefix="/tags")
-router.include_router(items.router, tags=["items"], prefix="/placeholder.png")
+#router.include_router(items.router, tags=["items"], prefix="/placeholder.png")
