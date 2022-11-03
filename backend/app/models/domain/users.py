@@ -9,7 +9,7 @@ class User(RWModel):
     username: str
     email: str
     bio: str = ""
-    image: Optional[str] = "/placeholder.png"
+    image: Optional[str] = None
 
 
 class UserInDB(IDModelMixin, DateTimeModelMixin, User):
