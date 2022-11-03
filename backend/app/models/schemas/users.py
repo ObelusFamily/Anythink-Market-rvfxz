@@ -20,7 +20,7 @@ class UserInUpdate(BaseModel):
     email: Optional[EmailStr] = None
     password: Optional[str] = None
     bio: Optional[str] = None
-    image: Optional[HttpUrl] = "/placeholder.py"
+    image: Optional[HttpUrl] = None
 
 
 class UserWithToken(User):
