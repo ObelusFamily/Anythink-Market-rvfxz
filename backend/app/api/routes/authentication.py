@@ -48,7 +48,7 @@ async def login(
             username=user.username,
             email=user.email,
             bio=user.bio,
-            image=user.image,
+            image="/placeholder.png",
             token=token,
         ),
     )
@@ -91,7 +91,7 @@ async def register(
             username=user.username,
             email=user.email,
             bio=user.bio,
-            image=user.image,
+            image="/placeholder.png",
             token=token,
         ),
     )
