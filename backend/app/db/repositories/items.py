@@ -39,7 +39,7 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
         description: str,
         seller: User,
         body: Optional[str] = None,
-        image: Optional[str] = "/placeholder.png",
+        image: Optional[str] = None,
         tags: Optional[Sequence[str]] = None,
     ) -> Item:
         async with self.connection.transaction():
@@ -50,7 +50,7 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                 description=description,
                 body=body,
                 seller_username=seller.username,
-                image=image or "placeholder.png"
+                image=image or "../../placeholder.png"
             )
 
             if tags:
