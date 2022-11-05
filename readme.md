@@ -12,3 +12,16 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 1. [Install Docker](https://docs.docker.com/get-docker/)
 2. [Install Docker Compose](https://docs.docker.com/compose/install/)
 3. Run `docker-compose up`. 
+
+First we have to install Docker, however before we do that make sure you are correctly set the WSL 2, windows subsystem for linux, Docker needs it to work properly.
+Then on terminal run 
+
+    docker -v
+and
+
+    docker-compose -v
+
+then, run 
+
+    docker-compose up 
+from the project root directory.
