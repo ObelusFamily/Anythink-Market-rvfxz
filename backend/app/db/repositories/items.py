@@ -144,11 +144,7 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             query = Query.from_(
                 items,
             ).select(
-                users.username,
-            ).as_(
-                SELLER_USERNAME_ALIAS,
-            ),
-        
+
             items.id,
             items.slug,
             items.title,
@@ -165,7 +161,8 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                 users.username,
             ).as_(
                 SELLER_USERNAME_ALIAS,
-            ),  
+            ),
+            )  
         # fmt: on
 
         if tag:
