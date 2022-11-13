@@ -130,39 +130,31 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                 Query.from_(
                     users,
                 ).where(
+                    items.title.like("%" + title + "%")
+                )
+            )
+        else:
+            query = Query.from_(
+                items,
+            ).select(
+                items.id,
+                items.slug,
+                items.title,
+                items.description,
+                items.body,
+                items.image,
+                items.created_at,
+                items.updated_at,
+                Query.from_(
+                    users,
+                ).where(
                     users.id == items.seller_id,
                 ).select(
                     users.username,
                 ).as_(
                     SELLER_USERNAME_ALIAS,
                 ),
-            ).where(
-                items.title.like("%" + title + "%")
-            )
-            
-        else:
-            query = Query.from_(
-                items,
-            ).select(
-
-            items.id,
-            items.slug,
-            items.title,
-            items.description,
-            items.body,
-            items.image,
-            items.created_at,
-            items.updated_at,
-            Query.from_(
-                users,
-            ).where(
-                users.id == items.seller_id,
-            ).select(
-                users.username,
-            ).as_(
-                SELLER_USERNAME_ALIAS,
-            ),
-            )  
+            )        
         # fmt: on
 
         if tag:
