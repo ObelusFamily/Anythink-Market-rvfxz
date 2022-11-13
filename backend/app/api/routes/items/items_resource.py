@@ -35,8 +35,8 @@ async def list_items(
     items_repo: ItemsRepository = Depends(get_repository(ItemsRepository)),
 ) -> ListOfItemsInResponse:
     items = await items_repo.filter_items(
-        title=items_filters.title,
         tag=items_filters.tag,
+        title=items_filters.title,
         seller=items_filters.seller,
         favorited=items_filters.favorited,
         limit=items_filters.limit,
