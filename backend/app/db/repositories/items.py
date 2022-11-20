@@ -116,9 +116,6 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
 
         # fmt: off
         if title:
-            query_params.append(tag)
-            query_params_count += 1
-            
             query = Query.from_(
                 items,
             ).select(
@@ -139,7 +136,9 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                 ).as_(
                     SELLER_USERNAME_ALIAS,
                 ),
-            ).where(items.title == title)
+            ).where(
+                items.title.like("%" + title + "%")
+            )
         else:
             query = Query.from_(
                 items,
