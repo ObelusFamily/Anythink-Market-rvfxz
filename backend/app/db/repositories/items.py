@@ -116,6 +116,9 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
 
         # fmt: off
         if title:
+            query_params.append(tag)
+            query_params_count += 1
+            
             query = Query.from_(
                 items,
             ).select(
