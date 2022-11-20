@@ -202,46 +202,6 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                     )
                 ),
             )
-        # fmt: on
-
-        if tag:
-            query_params.append(tag)
-            query_params_count += 1
-
-            # fmt: off
-            query = query.join(
-                items_to_tags,
-            ).on(
-                (items.id == items_to_tags.item_id) & (
-                    items_to_tags.tag == Query.from_(
-                        tags_table,
-                    ).where(
-                        tags_table.tag == Parameter(query_params_count),
-                    ).select(
-                        tags_table.tag,
-                    )
-                ),
-            )
-            # fmt: on
-
-        if seller:
-            query_params.append(seller)
-            query_params_count += 1
-
-            # fmt: off
-            query = query.join(
-                users,
-            ).on(
-                (items.seller_id == users.id) & (
-                    users.id == Query.from_(
-                        users,
-                    ).where(
-                        users.username == Parameter(query_params_count),
-                    ).select(
-                        users.id,
-                    )
-                ),
-            )
             # fmt: on
 
         if favorited:
