@@ -138,6 +138,25 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
         )
         # fmt: on
 
+        if title:
+            query_params.append(title)
+            query_params_count += 1
+
+            # fmt: off
+            query = query.join(
+                items,
+            ).on(
+                (items.title == items_to_tags.item_id) & (
+                    items_to_tags.tag == Query.from_(
+                        items,
+                    ).where(
+                        items.title == Parameter(query_params_count),
+                    ).select(
+                        tags_table.tag,
+                    )
+                ),
+            )
+
         if tag:
             query_params.append(tag)
             query_params_count += 1
