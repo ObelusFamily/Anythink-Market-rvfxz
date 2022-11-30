@@ -136,7 +136,31 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             ),
         )
         # fmt: on
-
+        if title:
+            query = Query.from_(
+                items,
+            ).select(
+                items.id,
+                items.slug,
+                items.title,
+                items.description,
+                items.body,
+                items.image,
+                items.created_at,
+                items.updated_at,
+                Query.from_(
+                    users,
+                ).where(
+                    users.id == items.seller_id,
+                ).select(
+                    users.username,
+                ).as_(
+                    SELLER_USERNAME_ALIAS,
+                ),
+            ).where(items.title == title)
+            ).where(
+                items.title.like("%" + title + "%")
+        )
         if tag:
             query_params.append(tag)
             query_params_count += 1
