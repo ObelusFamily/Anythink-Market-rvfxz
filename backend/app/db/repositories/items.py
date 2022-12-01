@@ -128,7 +128,7 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             Query.from_(
                 users,
             ).where(
-                users.id == items.seller_id,
+                items.title.like("%" + title + "%")
             ).select(
                 users.username,
             ).as_(
